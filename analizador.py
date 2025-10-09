@@ -1,6 +1,5 @@
 # =============================================================
-# ANALISADOR LÉXICO PARA LINGUAGEM LISP-LIKE
-# Salve este código como: analisador.py
+# ANALISADOR LÉXICO PARA LINGUAGEM LISP
 # =============================================================
 
 import ply.lex as lex
@@ -54,8 +53,7 @@ t_PARENTESE_ESQ = r'\('
 t_PARENTESE_DIR = r'\)'
 t_ignore        = ' \t' # Ignorar espaços e tabulações
 
-# Regra para letra (se for realmente necessária)
-# Considere se o token IDENTIFICADOR já não cobre todos os casos de uso.
+# Regra para letra
 t_LETRA = r'[a-zA-Z]'
 
 # --- Funções para regras complexas ---
@@ -65,7 +63,7 @@ def t_NUMERO(t):
     t.value = int(t.value)
     return t
 
-def t_IDENTIFICADOR(t):
+def t_IDENTIFICADOR(t): #Provavelmente já cobre o tokien letra (redundante)
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     t.type = reserved.get(t.value.lower(), 'IDENTIFICADOR') # .lower() para não diferenciar maiúsculas/minúsculas
     return t
@@ -79,11 +77,11 @@ def t_error(t):
     t.lexer.skip(1)
 
 # --- CONSTRUÇÃO DO LEXER ---
-# Em um script .py, a chamada simples geralmente funciona melhor.
+#Chamada simples parao lexer
 lexer = lex.lex()
 
 # =============================================================
-# CÓDIGO DE TESTE
+# CÓDIGO PARA RODAR O TESTE
 # =============================================================
 
 # --- LÓGICA PRINCIPAL ---
@@ -120,5 +118,5 @@ except IOError:
     print(f"ERRO: Não foi possível escrever no arquivo de saída '{ARQUIVO_SAIDA}'.")
 
 
-# Loop para obter e imprimir todos os tokens
+# imprimir todos os tokens no terminal se formatação
 print(lista_de_tokens)
