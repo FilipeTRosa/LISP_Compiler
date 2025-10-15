@@ -1,0 +1,1608 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> expressao
+Rule 2     expressao -> atomo
+Rule 3     expressao -> definicao_funcao
+Rule 4     expressao -> expressao_if
+Rule 5     expressao -> lista_generica
+Rule 6     atomo -> NUMERO
+Rule 7     atomo -> IDENTIFICADOR
+Rule 8     atomo -> MAIS
+Rule 9     atomo -> MENOS
+Rule 10    atomo -> MULTIPLICACAO
+Rule 11    atomo -> DIVISAO
+Rule 12    atomo -> DIVISAOINT
+Rule 13    atomo -> RESTO
+Rule 14    atomo -> MAIOR
+Rule 15    atomo -> MENOR
+Rule 16    atomo -> MAIORIGUAL
+Rule 17    atomo -> MENORIGUAL
+Rule 18    atomo -> IGUAL
+Rule 19    atomo -> DIFERENTE
+Rule 20    atomo -> COND
+Rule 21    atomo -> AND
+Rule 22    atomo -> OR
+Rule 23    atomo -> NOT
+Rule 24    atomo -> NIL
+Rule 25    atomo -> CAR
+Rule 26    atomo -> CDR
+Rule 27    atomo -> CONS
+Rule 28    definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+Rule 29    lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+Rule 30    expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR
+Rule 31    lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+Rule 32    lista_de_expressoes -> expressao lista_de_expressoes
+Rule 33    lista_de_expressoes -> expressao
+Rule 34    lista_de_expressoes -> <empty>
+
+Terminals, with rules where they appear
+
+AND                  : 21
+CAR                  : 25
+CDR                  : 26
+COND                 : 20
+CONS                 : 27
+DEFUN                : 28
+DIFERENTE            : 19
+DIVISAO              : 11
+DIVISAOINT           : 12
+IDENTIFICADOR        : 7 28
+IF                   : 30
+IGUAL                : 18
+MAIOR                : 14
+MAIORIGUAL           : 16
+MAIS                 : 8
+MENOR                : 15
+MENORIGUAL           : 17
+MENOS                : 9
+MULTIPLICACAO        : 10
+NIL                  : 24
+NOT                  : 23
+NUMERO               : 6
+OR                   : 22
+PARENTESE_DIR        : 28 29 30 31
+PARENTESE_ESQ        : 28 29 30 31
+RESTO                : 13
+error                : 
+
+Nonterminals, with rules where they appear
+
+atomo                : 2
+definicao_funcao     : 3
+expressao            : 1 28 30 30 30 32 33
+expressao_if         : 4
+lista_de_expressoes  : 29 31 32
+lista_generica       : 5
+lista_parametros     : 28
+programa             : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . expressao
+    (2) expressao -> . atomo
+    (3) expressao -> . definicao_funcao
+    (4) expressao -> . expressao_if
+    (5) expressao -> . lista_generica
+    (6) atomo -> . NUMERO
+    (7) atomo -> . IDENTIFICADOR
+    (8) atomo -> . MAIS
+    (9) atomo -> . MENOS
+    (10) atomo -> . MULTIPLICACAO
+    (11) atomo -> . DIVISAO
+    (12) atomo -> . DIVISAOINT
+    (13) atomo -> . RESTO
+    (14) atomo -> . MAIOR
+    (15) atomo -> . MENOR
+    (16) atomo -> . MAIORIGUAL
+    (17) atomo -> . MENORIGUAL
+    (18) atomo -> . IGUAL
+    (19) atomo -> . DIFERENTE
+    (20) atomo -> . COND
+    (21) atomo -> . AND
+    (22) atomo -> . OR
+    (23) atomo -> . NOT
+    (24) atomo -> . NIL
+    (25) atomo -> . CAR
+    (26) atomo -> . CDR
+    (27) atomo -> . CONS
+    (28) definicao_funcao -> . PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+    (30) expressao_if -> . PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR
+    (31) lista_generica -> . PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+
+    NUMERO          shift and go to state 7
+    IDENTIFICADOR   shift and go to state 8
+    MAIS            shift and go to state 9
+    MENOS           shift and go to state 10
+    MULTIPLICACAO   shift and go to state 11
+    DIVISAO         shift and go to state 12
+    DIVISAOINT      shift and go to state 13
+    RESTO           shift and go to state 14
+    MAIOR           shift and go to state 15
+    MENOR           shift and go to state 16
+    MAIORIGUAL      shift and go to state 17
+    MENORIGUAL      shift and go to state 18
+    IGUAL           shift and go to state 19
+    DIFERENTE       shift and go to state 20
+    COND            shift and go to state 21
+    AND             shift and go to state 22
+    OR              shift and go to state 23
+    NOT             shift and go to state 24
+    NIL             shift and go to state 25
+    CAR             shift and go to state 26
+    CDR             shift and go to state 27
+    CONS            shift and go to state 28
+    PARENTESE_ESQ   shift and go to state 29
+
+    programa                       shift and go to state 1
+    expressao                      shift and go to state 2
+    atomo                          shift and go to state 3
+    definicao_funcao               shift and go to state 4
+    expressao_if                   shift and go to state 5
+    lista_generica                 shift and go to state 6
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> expressao .
+
+    $end            reduce using rule 1 (programa -> expressao .)
+
+
+state 3
+
+    (2) expressao -> atomo .
+
+    $end            reduce using rule 2 (expressao -> atomo .)
+    NUMERO          reduce using rule 2 (expressao -> atomo .)
+    IDENTIFICADOR   reduce using rule 2 (expressao -> atomo .)
+    MAIS            reduce using rule 2 (expressao -> atomo .)
+    MENOS           reduce using rule 2 (expressao -> atomo .)
+    MULTIPLICACAO   reduce using rule 2 (expressao -> atomo .)
+    DIVISAO         reduce using rule 2 (expressao -> atomo .)
+    DIVISAOINT      reduce using rule 2 (expressao -> atomo .)
+    RESTO           reduce using rule 2 (expressao -> atomo .)
+    MAIOR           reduce using rule 2 (expressao -> atomo .)
+    MENOR           reduce using rule 2 (expressao -> atomo .)
+    MAIORIGUAL      reduce using rule 2 (expressao -> atomo .)
+    MENORIGUAL      reduce using rule 2 (expressao -> atomo .)
+    IGUAL           reduce using rule 2 (expressao -> atomo .)
+    DIFERENTE       reduce using rule 2 (expressao -> atomo .)
+    COND            reduce using rule 2 (expressao -> atomo .)
+    AND             reduce using rule 2 (expressao -> atomo .)
+    OR              reduce using rule 2 (expressao -> atomo .)
+    NOT             reduce using rule 2 (expressao -> atomo .)
+    NIL             reduce using rule 2 (expressao -> atomo .)
+    CAR             reduce using rule 2 (expressao -> atomo .)
+    CDR             reduce using rule 2 (expressao -> atomo .)
+    CONS            reduce using rule 2 (expressao -> atomo .)
+    PARENTESE_ESQ   reduce using rule 2 (expressao -> atomo .)
+    PARENTESE_DIR   reduce using rule 2 (expressao -> atomo .)
+
+
+state 4
+
+    (3) expressao -> definicao_funcao .
+
+    $end            reduce using rule 3 (expressao -> definicao_funcao .)
+    NUMERO          reduce using rule 3 (expressao -> definicao_funcao .)
+    IDENTIFICADOR   reduce using rule 3 (expressao -> definicao_funcao .)
+    MAIS            reduce using rule 3 (expressao -> definicao_funcao .)
+    MENOS           reduce using rule 3 (expressao -> definicao_funcao .)
+    MULTIPLICACAO   reduce using rule 3 (expressao -> definicao_funcao .)
+    DIVISAO         reduce using rule 3 (expressao -> definicao_funcao .)
+    DIVISAOINT      reduce using rule 3 (expressao -> definicao_funcao .)
+    RESTO           reduce using rule 3 (expressao -> definicao_funcao .)
+    MAIOR           reduce using rule 3 (expressao -> definicao_funcao .)
+    MENOR           reduce using rule 3 (expressao -> definicao_funcao .)
+    MAIORIGUAL      reduce using rule 3 (expressao -> definicao_funcao .)
+    MENORIGUAL      reduce using rule 3 (expressao -> definicao_funcao .)
+    IGUAL           reduce using rule 3 (expressao -> definicao_funcao .)
+    DIFERENTE       reduce using rule 3 (expressao -> definicao_funcao .)
+    COND            reduce using rule 3 (expressao -> definicao_funcao .)
+    AND             reduce using rule 3 (expressao -> definicao_funcao .)
+    OR              reduce using rule 3 (expressao -> definicao_funcao .)
+    NOT             reduce using rule 3 (expressao -> definicao_funcao .)
+    NIL             reduce using rule 3 (expressao -> definicao_funcao .)
+    CAR             reduce using rule 3 (expressao -> definicao_funcao .)
+    CDR             reduce using rule 3 (expressao -> definicao_funcao .)
+    CONS            reduce using rule 3 (expressao -> definicao_funcao .)
+    PARENTESE_ESQ   reduce using rule 3 (expressao -> definicao_funcao .)
+    PARENTESE_DIR   reduce using rule 3 (expressao -> definicao_funcao .)
+
+
+state 5
+
+    (4) expressao -> expressao_if .
+
+    $end            reduce using rule 4 (expressao -> expressao_if .)
+    NUMERO          reduce using rule 4 (expressao -> expressao_if .)
+    IDENTIFICADOR   reduce using rule 4 (expressao -> expressao_if .)
+    MAIS            reduce using rule 4 (expressao -> expressao_if .)
+    MENOS           reduce using rule 4 (expressao -> expressao_if .)
+    MULTIPLICACAO   reduce using rule 4 (expressao -> expressao_if .)
+    DIVISAO         reduce using rule 4 (expressao -> expressao_if .)
+    DIVISAOINT      reduce using rule 4 (expressao -> expressao_if .)
+    RESTO           reduce using rule 4 (expressao -> expressao_if .)
+    MAIOR           reduce using rule 4 (expressao -> expressao_if .)
+    MENOR           reduce using rule 4 (expressao -> expressao_if .)
+    MAIORIGUAL      reduce using rule 4 (expressao -> expressao_if .)
+    MENORIGUAL      reduce using rule 4 (expressao -> expressao_if .)
+    IGUAL           reduce using rule 4 (expressao -> expressao_if .)
+    DIFERENTE       reduce using rule 4 (expressao -> expressao_if .)
+    COND            reduce using rule 4 (expressao -> expressao_if .)
+    AND             reduce using rule 4 (expressao -> expressao_if .)
+    OR              reduce using rule 4 (expressao -> expressao_if .)
+    NOT             reduce using rule 4 (expressao -> expressao_if .)
+    NIL             reduce using rule 4 (expressao -> expressao_if .)
+    CAR             reduce using rule 4 (expressao -> expressao_if .)
+    CDR             reduce using rule 4 (expressao -> expressao_if .)
+    CONS            reduce using rule 4 (expressao -> expressao_if .)
+    PARENTESE_ESQ   reduce using rule 4 (expressao -> expressao_if .)
+    PARENTESE_DIR   reduce using rule 4 (expressao -> expressao_if .)
+
+
+state 6
+
+    (5) expressao -> lista_generica .
+
+    $end            reduce using rule 5 (expressao -> lista_generica .)
+    NUMERO          reduce using rule 5 (expressao -> lista_generica .)
+    IDENTIFICADOR   reduce using rule 5 (expressao -> lista_generica .)
+    MAIS            reduce using rule 5 (expressao -> lista_generica .)
+    MENOS           reduce using rule 5 (expressao -> lista_generica .)
+    MULTIPLICACAO   reduce using rule 5 (expressao -> lista_generica .)
+    DIVISAO         reduce using rule 5 (expressao -> lista_generica .)
+    DIVISAOINT      reduce using rule 5 (expressao -> lista_generica .)
+    RESTO           reduce using rule 5 (expressao -> lista_generica .)
+    MAIOR           reduce using rule 5 (expressao -> lista_generica .)
+    MENOR           reduce using rule 5 (expressao -> lista_generica .)
+    MAIORIGUAL      reduce using rule 5 (expressao -> lista_generica .)
+    MENORIGUAL      reduce using rule 5 (expressao -> lista_generica .)
+    IGUAL           reduce using rule 5 (expressao -> lista_generica .)
+    DIFERENTE       reduce using rule 5 (expressao -> lista_generica .)
+    COND            reduce using rule 5 (expressao -> lista_generica .)
+    AND             reduce using rule 5 (expressao -> lista_generica .)
+    OR              reduce using rule 5 (expressao -> lista_generica .)
+    NOT             reduce using rule 5 (expressao -> lista_generica .)
+    NIL             reduce using rule 5 (expressao -> lista_generica .)
+    CAR             reduce using rule 5 (expressao -> lista_generica .)
+    CDR             reduce using rule 5 (expressao -> lista_generica .)
+    CONS            reduce using rule 5 (expressao -> lista_generica .)
+    PARENTESE_ESQ   reduce using rule 5 (expressao -> lista_generica .)
+    PARENTESE_DIR   reduce using rule 5 (expressao -> lista_generica .)
+
+
+state 7
+
+    (6) atomo -> NUMERO .
+
+    $end            reduce using rule 6 (atomo -> NUMERO .)
+    NUMERO          reduce using rule 6 (atomo -> NUMERO .)
+    IDENTIFICADOR   reduce using rule 6 (atomo -> NUMERO .)
+    MAIS            reduce using rule 6 (atomo -> NUMERO .)
+    MENOS           reduce using rule 6 (atomo -> NUMERO .)
+    MULTIPLICACAO   reduce using rule 6 (atomo -> NUMERO .)
+    DIVISAO         reduce using rule 6 (atomo -> NUMERO .)
+    DIVISAOINT      reduce using rule 6 (atomo -> NUMERO .)
+    RESTO           reduce using rule 6 (atomo -> NUMERO .)
+    MAIOR           reduce using rule 6 (atomo -> NUMERO .)
+    MENOR           reduce using rule 6 (atomo -> NUMERO .)
+    MAIORIGUAL      reduce using rule 6 (atomo -> NUMERO .)
+    MENORIGUAL      reduce using rule 6 (atomo -> NUMERO .)
+    IGUAL           reduce using rule 6 (atomo -> NUMERO .)
+    DIFERENTE       reduce using rule 6 (atomo -> NUMERO .)
+    COND            reduce using rule 6 (atomo -> NUMERO .)
+    AND             reduce using rule 6 (atomo -> NUMERO .)
+    OR              reduce using rule 6 (atomo -> NUMERO .)
+    NOT             reduce using rule 6 (atomo -> NUMERO .)
+    NIL             reduce using rule 6 (atomo -> NUMERO .)
+    CAR             reduce using rule 6 (atomo -> NUMERO .)
+    CDR             reduce using rule 6 (atomo -> NUMERO .)
+    CONS            reduce using rule 6 (atomo -> NUMERO .)
+    PARENTESE_ESQ   reduce using rule 6 (atomo -> NUMERO .)
+    PARENTESE_DIR   reduce using rule 6 (atomo -> NUMERO .)
+
+
+state 8
+
+    (7) atomo -> IDENTIFICADOR .
+
+    $end            reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    NUMERO          reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    IDENTIFICADOR   reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    MAIS            reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    MENOS           reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    MULTIPLICACAO   reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    DIVISAO         reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    DIVISAOINT      reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    RESTO           reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    MAIOR           reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    MENOR           reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    MAIORIGUAL      reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    MENORIGUAL      reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    IGUAL           reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    DIFERENTE       reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    COND            reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    AND             reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    OR              reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    NOT             reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    NIL             reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    CAR             reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    CDR             reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    CONS            reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    PARENTESE_ESQ   reduce using rule 7 (atomo -> IDENTIFICADOR .)
+    PARENTESE_DIR   reduce using rule 7 (atomo -> IDENTIFICADOR .)
+
+
+state 9
+
+    (8) atomo -> MAIS .
+
+    $end            reduce using rule 8 (atomo -> MAIS .)
+    NUMERO          reduce using rule 8 (atomo -> MAIS .)
+    IDENTIFICADOR   reduce using rule 8 (atomo -> MAIS .)
+    MAIS            reduce using rule 8 (atomo -> MAIS .)
+    MENOS           reduce using rule 8 (atomo -> MAIS .)
+    MULTIPLICACAO   reduce using rule 8 (atomo -> MAIS .)
+    DIVISAO         reduce using rule 8 (atomo -> MAIS .)
+    DIVISAOINT      reduce using rule 8 (atomo -> MAIS .)
+    RESTO           reduce using rule 8 (atomo -> MAIS .)
+    MAIOR           reduce using rule 8 (atomo -> MAIS .)
+    MENOR           reduce using rule 8 (atomo -> MAIS .)
+    MAIORIGUAL      reduce using rule 8 (atomo -> MAIS .)
+    MENORIGUAL      reduce using rule 8 (atomo -> MAIS .)
+    IGUAL           reduce using rule 8 (atomo -> MAIS .)
+    DIFERENTE       reduce using rule 8 (atomo -> MAIS .)
+    COND            reduce using rule 8 (atomo -> MAIS .)
+    AND             reduce using rule 8 (atomo -> MAIS .)
+    OR              reduce using rule 8 (atomo -> MAIS .)
+    NOT             reduce using rule 8 (atomo -> MAIS .)
+    NIL             reduce using rule 8 (atomo -> MAIS .)
+    CAR             reduce using rule 8 (atomo -> MAIS .)
+    CDR             reduce using rule 8 (atomo -> MAIS .)
+    CONS            reduce using rule 8 (atomo -> MAIS .)
+    PARENTESE_ESQ   reduce using rule 8 (atomo -> MAIS .)
+    PARENTESE_DIR   reduce using rule 8 (atomo -> MAIS .)
+
+
+state 10
+
+    (9) atomo -> MENOS .
+
+    $end            reduce using rule 9 (atomo -> MENOS .)
+    NUMERO          reduce using rule 9 (atomo -> MENOS .)
+    IDENTIFICADOR   reduce using rule 9 (atomo -> MENOS .)
+    MAIS            reduce using rule 9 (atomo -> MENOS .)
+    MENOS           reduce using rule 9 (atomo -> MENOS .)
+    MULTIPLICACAO   reduce using rule 9 (atomo -> MENOS .)
+    DIVISAO         reduce using rule 9 (atomo -> MENOS .)
+    DIVISAOINT      reduce using rule 9 (atomo -> MENOS .)
+    RESTO           reduce using rule 9 (atomo -> MENOS .)
+    MAIOR           reduce using rule 9 (atomo -> MENOS .)
+    MENOR           reduce using rule 9 (atomo -> MENOS .)
+    MAIORIGUAL      reduce using rule 9 (atomo -> MENOS .)
+    MENORIGUAL      reduce using rule 9 (atomo -> MENOS .)
+    IGUAL           reduce using rule 9 (atomo -> MENOS .)
+    DIFERENTE       reduce using rule 9 (atomo -> MENOS .)
+    COND            reduce using rule 9 (atomo -> MENOS .)
+    AND             reduce using rule 9 (atomo -> MENOS .)
+    OR              reduce using rule 9 (atomo -> MENOS .)
+    NOT             reduce using rule 9 (atomo -> MENOS .)
+    NIL             reduce using rule 9 (atomo -> MENOS .)
+    CAR             reduce using rule 9 (atomo -> MENOS .)
+    CDR             reduce using rule 9 (atomo -> MENOS .)
+    CONS            reduce using rule 9 (atomo -> MENOS .)
+    PARENTESE_ESQ   reduce using rule 9 (atomo -> MENOS .)
+    PARENTESE_DIR   reduce using rule 9 (atomo -> MENOS .)
+
+
+state 11
+
+    (10) atomo -> MULTIPLICACAO .
+
+    $end            reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    NUMERO          reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    IDENTIFICADOR   reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    MAIS            reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    MENOS           reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    MULTIPLICACAO   reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    DIVISAO         reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    DIVISAOINT      reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    RESTO           reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    MAIOR           reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    MENOR           reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    MAIORIGUAL      reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    MENORIGUAL      reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    IGUAL           reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    DIFERENTE       reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    COND            reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    AND             reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    OR              reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    NOT             reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    NIL             reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    CAR             reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    CDR             reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    CONS            reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    PARENTESE_ESQ   reduce using rule 10 (atomo -> MULTIPLICACAO .)
+    PARENTESE_DIR   reduce using rule 10 (atomo -> MULTIPLICACAO .)
+
+
+state 12
+
+    (11) atomo -> DIVISAO .
+
+    $end            reduce using rule 11 (atomo -> DIVISAO .)
+    NUMERO          reduce using rule 11 (atomo -> DIVISAO .)
+    IDENTIFICADOR   reduce using rule 11 (atomo -> DIVISAO .)
+    MAIS            reduce using rule 11 (atomo -> DIVISAO .)
+    MENOS           reduce using rule 11 (atomo -> DIVISAO .)
+    MULTIPLICACAO   reduce using rule 11 (atomo -> DIVISAO .)
+    DIVISAO         reduce using rule 11 (atomo -> DIVISAO .)
+    DIVISAOINT      reduce using rule 11 (atomo -> DIVISAO .)
+    RESTO           reduce using rule 11 (atomo -> DIVISAO .)
+    MAIOR           reduce using rule 11 (atomo -> DIVISAO .)
+    MENOR           reduce using rule 11 (atomo -> DIVISAO .)
+    MAIORIGUAL      reduce using rule 11 (atomo -> DIVISAO .)
+    MENORIGUAL      reduce using rule 11 (atomo -> DIVISAO .)
+    IGUAL           reduce using rule 11 (atomo -> DIVISAO .)
+    DIFERENTE       reduce using rule 11 (atomo -> DIVISAO .)
+    COND            reduce using rule 11 (atomo -> DIVISAO .)
+    AND             reduce using rule 11 (atomo -> DIVISAO .)
+    OR              reduce using rule 11 (atomo -> DIVISAO .)
+    NOT             reduce using rule 11 (atomo -> DIVISAO .)
+    NIL             reduce using rule 11 (atomo -> DIVISAO .)
+    CAR             reduce using rule 11 (atomo -> DIVISAO .)
+    CDR             reduce using rule 11 (atomo -> DIVISAO .)
+    CONS            reduce using rule 11 (atomo -> DIVISAO .)
+    PARENTESE_ESQ   reduce using rule 11 (atomo -> DIVISAO .)
+    PARENTESE_DIR   reduce using rule 11 (atomo -> DIVISAO .)
+
+
+state 13
+
+    (12) atomo -> DIVISAOINT .
+
+    $end            reduce using rule 12 (atomo -> DIVISAOINT .)
+    NUMERO          reduce using rule 12 (atomo -> DIVISAOINT .)
+    IDENTIFICADOR   reduce using rule 12 (atomo -> DIVISAOINT .)
+    MAIS            reduce using rule 12 (atomo -> DIVISAOINT .)
+    MENOS           reduce using rule 12 (atomo -> DIVISAOINT .)
+    MULTIPLICACAO   reduce using rule 12 (atomo -> DIVISAOINT .)
+    DIVISAO         reduce using rule 12 (atomo -> DIVISAOINT .)
+    DIVISAOINT      reduce using rule 12 (atomo -> DIVISAOINT .)
+    RESTO           reduce using rule 12 (atomo -> DIVISAOINT .)
+    MAIOR           reduce using rule 12 (atomo -> DIVISAOINT .)
+    MENOR           reduce using rule 12 (atomo -> DIVISAOINT .)
+    MAIORIGUAL      reduce using rule 12 (atomo -> DIVISAOINT .)
+    MENORIGUAL      reduce using rule 12 (atomo -> DIVISAOINT .)
+    IGUAL           reduce using rule 12 (atomo -> DIVISAOINT .)
+    DIFERENTE       reduce using rule 12 (atomo -> DIVISAOINT .)
+    COND            reduce using rule 12 (atomo -> DIVISAOINT .)
+    AND             reduce using rule 12 (atomo -> DIVISAOINT .)
+    OR              reduce using rule 12 (atomo -> DIVISAOINT .)
+    NOT             reduce using rule 12 (atomo -> DIVISAOINT .)
+    NIL             reduce using rule 12 (atomo -> DIVISAOINT .)
+    CAR             reduce using rule 12 (atomo -> DIVISAOINT .)
+    CDR             reduce using rule 12 (atomo -> DIVISAOINT .)
+    CONS            reduce using rule 12 (atomo -> DIVISAOINT .)
+    PARENTESE_ESQ   reduce using rule 12 (atomo -> DIVISAOINT .)
+    PARENTESE_DIR   reduce using rule 12 (atomo -> DIVISAOINT .)
+
+
+state 14
+
+    (13) atomo -> RESTO .
+
+    $end            reduce using rule 13 (atomo -> RESTO .)
+    NUMERO          reduce using rule 13 (atomo -> RESTO .)
+    IDENTIFICADOR   reduce using rule 13 (atomo -> RESTO .)
+    MAIS            reduce using rule 13 (atomo -> RESTO .)
+    MENOS           reduce using rule 13 (atomo -> RESTO .)
+    MULTIPLICACAO   reduce using rule 13 (atomo -> RESTO .)
+    DIVISAO         reduce using rule 13 (atomo -> RESTO .)
+    DIVISAOINT      reduce using rule 13 (atomo -> RESTO .)
+    RESTO           reduce using rule 13 (atomo -> RESTO .)
+    MAIOR           reduce using rule 13 (atomo -> RESTO .)
+    MENOR           reduce using rule 13 (atomo -> RESTO .)
+    MAIORIGUAL      reduce using rule 13 (atomo -> RESTO .)
+    MENORIGUAL      reduce using rule 13 (atomo -> RESTO .)
+    IGUAL           reduce using rule 13 (atomo -> RESTO .)
+    DIFERENTE       reduce using rule 13 (atomo -> RESTO .)
+    COND            reduce using rule 13 (atomo -> RESTO .)
+    AND             reduce using rule 13 (atomo -> RESTO .)
+    OR              reduce using rule 13 (atomo -> RESTO .)
+    NOT             reduce using rule 13 (atomo -> RESTO .)
+    NIL             reduce using rule 13 (atomo -> RESTO .)
+    CAR             reduce using rule 13 (atomo -> RESTO .)
+    CDR             reduce using rule 13 (atomo -> RESTO .)
+    CONS            reduce using rule 13 (atomo -> RESTO .)
+    PARENTESE_ESQ   reduce using rule 13 (atomo -> RESTO .)
+    PARENTESE_DIR   reduce using rule 13 (atomo -> RESTO .)
+
+
+state 15
+
+    (14) atomo -> MAIOR .
+
+    $end            reduce using rule 14 (atomo -> MAIOR .)
+    NUMERO          reduce using rule 14 (atomo -> MAIOR .)
+    IDENTIFICADOR   reduce using rule 14 (atomo -> MAIOR .)
+    MAIS            reduce using rule 14 (atomo -> MAIOR .)
+    MENOS           reduce using rule 14 (atomo -> MAIOR .)
+    MULTIPLICACAO   reduce using rule 14 (atomo -> MAIOR .)
+    DIVISAO         reduce using rule 14 (atomo -> MAIOR .)
+    DIVISAOINT      reduce using rule 14 (atomo -> MAIOR .)
+    RESTO           reduce using rule 14 (atomo -> MAIOR .)
+    MAIOR           reduce using rule 14 (atomo -> MAIOR .)
+    MENOR           reduce using rule 14 (atomo -> MAIOR .)
+    MAIORIGUAL      reduce using rule 14 (atomo -> MAIOR .)
+    MENORIGUAL      reduce using rule 14 (atomo -> MAIOR .)
+    IGUAL           reduce using rule 14 (atomo -> MAIOR .)
+    DIFERENTE       reduce using rule 14 (atomo -> MAIOR .)
+    COND            reduce using rule 14 (atomo -> MAIOR .)
+    AND             reduce using rule 14 (atomo -> MAIOR .)
+    OR              reduce using rule 14 (atomo -> MAIOR .)
+    NOT             reduce using rule 14 (atomo -> MAIOR .)
+    NIL             reduce using rule 14 (atomo -> MAIOR .)
+    CAR             reduce using rule 14 (atomo -> MAIOR .)
+    CDR             reduce using rule 14 (atomo -> MAIOR .)
+    CONS            reduce using rule 14 (atomo -> MAIOR .)
+    PARENTESE_ESQ   reduce using rule 14 (atomo -> MAIOR .)
+    PARENTESE_DIR   reduce using rule 14 (atomo -> MAIOR .)
+
+
+state 16
+
+    (15) atomo -> MENOR .
+
+    $end            reduce using rule 15 (atomo -> MENOR .)
+    NUMERO          reduce using rule 15 (atomo -> MENOR .)
+    IDENTIFICADOR   reduce using rule 15 (atomo -> MENOR .)
+    MAIS            reduce using rule 15 (atomo -> MENOR .)
+    MENOS           reduce using rule 15 (atomo -> MENOR .)
+    MULTIPLICACAO   reduce using rule 15 (atomo -> MENOR .)
+    DIVISAO         reduce using rule 15 (atomo -> MENOR .)
+    DIVISAOINT      reduce using rule 15 (atomo -> MENOR .)
+    RESTO           reduce using rule 15 (atomo -> MENOR .)
+    MAIOR           reduce using rule 15 (atomo -> MENOR .)
+    MENOR           reduce using rule 15 (atomo -> MENOR .)
+    MAIORIGUAL      reduce using rule 15 (atomo -> MENOR .)
+    MENORIGUAL      reduce using rule 15 (atomo -> MENOR .)
+    IGUAL           reduce using rule 15 (atomo -> MENOR .)
+    DIFERENTE       reduce using rule 15 (atomo -> MENOR .)
+    COND            reduce using rule 15 (atomo -> MENOR .)
+    AND             reduce using rule 15 (atomo -> MENOR .)
+    OR              reduce using rule 15 (atomo -> MENOR .)
+    NOT             reduce using rule 15 (atomo -> MENOR .)
+    NIL             reduce using rule 15 (atomo -> MENOR .)
+    CAR             reduce using rule 15 (atomo -> MENOR .)
+    CDR             reduce using rule 15 (atomo -> MENOR .)
+    CONS            reduce using rule 15 (atomo -> MENOR .)
+    PARENTESE_ESQ   reduce using rule 15 (atomo -> MENOR .)
+    PARENTESE_DIR   reduce using rule 15 (atomo -> MENOR .)
+
+
+state 17
+
+    (16) atomo -> MAIORIGUAL .
+
+    $end            reduce using rule 16 (atomo -> MAIORIGUAL .)
+    NUMERO          reduce using rule 16 (atomo -> MAIORIGUAL .)
+    IDENTIFICADOR   reduce using rule 16 (atomo -> MAIORIGUAL .)
+    MAIS            reduce using rule 16 (atomo -> MAIORIGUAL .)
+    MENOS           reduce using rule 16 (atomo -> MAIORIGUAL .)
+    MULTIPLICACAO   reduce using rule 16 (atomo -> MAIORIGUAL .)
+    DIVISAO         reduce using rule 16 (atomo -> MAIORIGUAL .)
+    DIVISAOINT      reduce using rule 16 (atomo -> MAIORIGUAL .)
+    RESTO           reduce using rule 16 (atomo -> MAIORIGUAL .)
+    MAIOR           reduce using rule 16 (atomo -> MAIORIGUAL .)
+    MENOR           reduce using rule 16 (atomo -> MAIORIGUAL .)
+    MAIORIGUAL      reduce using rule 16 (atomo -> MAIORIGUAL .)
+    MENORIGUAL      reduce using rule 16 (atomo -> MAIORIGUAL .)
+    IGUAL           reduce using rule 16 (atomo -> MAIORIGUAL .)
+    DIFERENTE       reduce using rule 16 (atomo -> MAIORIGUAL .)
+    COND            reduce using rule 16 (atomo -> MAIORIGUAL .)
+    AND             reduce using rule 16 (atomo -> MAIORIGUAL .)
+    OR              reduce using rule 16 (atomo -> MAIORIGUAL .)
+    NOT             reduce using rule 16 (atomo -> MAIORIGUAL .)
+    NIL             reduce using rule 16 (atomo -> MAIORIGUAL .)
+    CAR             reduce using rule 16 (atomo -> MAIORIGUAL .)
+    CDR             reduce using rule 16 (atomo -> MAIORIGUAL .)
+    CONS            reduce using rule 16 (atomo -> MAIORIGUAL .)
+    PARENTESE_ESQ   reduce using rule 16 (atomo -> MAIORIGUAL .)
+    PARENTESE_DIR   reduce using rule 16 (atomo -> MAIORIGUAL .)
+
+
+state 18
+
+    (17) atomo -> MENORIGUAL .
+
+    $end            reduce using rule 17 (atomo -> MENORIGUAL .)
+    NUMERO          reduce using rule 17 (atomo -> MENORIGUAL .)
+    IDENTIFICADOR   reduce using rule 17 (atomo -> MENORIGUAL .)
+    MAIS            reduce using rule 17 (atomo -> MENORIGUAL .)
+    MENOS           reduce using rule 17 (atomo -> MENORIGUAL .)
+    MULTIPLICACAO   reduce using rule 17 (atomo -> MENORIGUAL .)
+    DIVISAO         reduce using rule 17 (atomo -> MENORIGUAL .)
+    DIVISAOINT      reduce using rule 17 (atomo -> MENORIGUAL .)
+    RESTO           reduce using rule 17 (atomo -> MENORIGUAL .)
+    MAIOR           reduce using rule 17 (atomo -> MENORIGUAL .)
+    MENOR           reduce using rule 17 (atomo -> MENORIGUAL .)
+    MAIORIGUAL      reduce using rule 17 (atomo -> MENORIGUAL .)
+    MENORIGUAL      reduce using rule 17 (atomo -> MENORIGUAL .)
+    IGUAL           reduce using rule 17 (atomo -> MENORIGUAL .)
+    DIFERENTE       reduce using rule 17 (atomo -> MENORIGUAL .)
+    COND            reduce using rule 17 (atomo -> MENORIGUAL .)
+    AND             reduce using rule 17 (atomo -> MENORIGUAL .)
+    OR              reduce using rule 17 (atomo -> MENORIGUAL .)
+    NOT             reduce using rule 17 (atomo -> MENORIGUAL .)
+    NIL             reduce using rule 17 (atomo -> MENORIGUAL .)
+    CAR             reduce using rule 17 (atomo -> MENORIGUAL .)
+    CDR             reduce using rule 17 (atomo -> MENORIGUAL .)
+    CONS            reduce using rule 17 (atomo -> MENORIGUAL .)
+    PARENTESE_ESQ   reduce using rule 17 (atomo -> MENORIGUAL .)
+    PARENTESE_DIR   reduce using rule 17 (atomo -> MENORIGUAL .)
+
+
+state 19
+
+    (18) atomo -> IGUAL .
+
+    $end            reduce using rule 18 (atomo -> IGUAL .)
+    NUMERO          reduce using rule 18 (atomo -> IGUAL .)
+    IDENTIFICADOR   reduce using rule 18 (atomo -> IGUAL .)
+    MAIS            reduce using rule 18 (atomo -> IGUAL .)
+    MENOS           reduce using rule 18 (atomo -> IGUAL .)
+    MULTIPLICACAO   reduce using rule 18 (atomo -> IGUAL .)
+    DIVISAO         reduce using rule 18 (atomo -> IGUAL .)
+    DIVISAOINT      reduce using rule 18 (atomo -> IGUAL .)
+    RESTO           reduce using rule 18 (atomo -> IGUAL .)
+    MAIOR           reduce using rule 18 (atomo -> IGUAL .)
+    MENOR           reduce using rule 18 (atomo -> IGUAL .)
+    MAIORIGUAL      reduce using rule 18 (atomo -> IGUAL .)
+    MENORIGUAL      reduce using rule 18 (atomo -> IGUAL .)
+    IGUAL           reduce using rule 18 (atomo -> IGUAL .)
+    DIFERENTE       reduce using rule 18 (atomo -> IGUAL .)
+    COND            reduce using rule 18 (atomo -> IGUAL .)
+    AND             reduce using rule 18 (atomo -> IGUAL .)
+    OR              reduce using rule 18 (atomo -> IGUAL .)
+    NOT             reduce using rule 18 (atomo -> IGUAL .)
+    NIL             reduce using rule 18 (atomo -> IGUAL .)
+    CAR             reduce using rule 18 (atomo -> IGUAL .)
+    CDR             reduce using rule 18 (atomo -> IGUAL .)
+    CONS            reduce using rule 18 (atomo -> IGUAL .)
+    PARENTESE_ESQ   reduce using rule 18 (atomo -> IGUAL .)
+    PARENTESE_DIR   reduce using rule 18 (atomo -> IGUAL .)
+
+
+state 20
+
+    (19) atomo -> DIFERENTE .
+
+    $end            reduce using rule 19 (atomo -> DIFERENTE .)
+    NUMERO          reduce using rule 19 (atomo -> DIFERENTE .)
+    IDENTIFICADOR   reduce using rule 19 (atomo -> DIFERENTE .)
+    MAIS            reduce using rule 19 (atomo -> DIFERENTE .)
+    MENOS           reduce using rule 19 (atomo -> DIFERENTE .)
+    MULTIPLICACAO   reduce using rule 19 (atomo -> DIFERENTE .)
+    DIVISAO         reduce using rule 19 (atomo -> DIFERENTE .)
+    DIVISAOINT      reduce using rule 19 (atomo -> DIFERENTE .)
+    RESTO           reduce using rule 19 (atomo -> DIFERENTE .)
+    MAIOR           reduce using rule 19 (atomo -> DIFERENTE .)
+    MENOR           reduce using rule 19 (atomo -> DIFERENTE .)
+    MAIORIGUAL      reduce using rule 19 (atomo -> DIFERENTE .)
+    MENORIGUAL      reduce using rule 19 (atomo -> DIFERENTE .)
+    IGUAL           reduce using rule 19 (atomo -> DIFERENTE .)
+    DIFERENTE       reduce using rule 19 (atomo -> DIFERENTE .)
+    COND            reduce using rule 19 (atomo -> DIFERENTE .)
+    AND             reduce using rule 19 (atomo -> DIFERENTE .)
+    OR              reduce using rule 19 (atomo -> DIFERENTE .)
+    NOT             reduce using rule 19 (atomo -> DIFERENTE .)
+    NIL             reduce using rule 19 (atomo -> DIFERENTE .)
+    CAR             reduce using rule 19 (atomo -> DIFERENTE .)
+    CDR             reduce using rule 19 (atomo -> DIFERENTE .)
+    CONS            reduce using rule 19 (atomo -> DIFERENTE .)
+    PARENTESE_ESQ   reduce using rule 19 (atomo -> DIFERENTE .)
+    PARENTESE_DIR   reduce using rule 19 (atomo -> DIFERENTE .)
+
+
+state 21
+
+    (20) atomo -> COND .
+
+    $end            reduce using rule 20 (atomo -> COND .)
+    NUMERO          reduce using rule 20 (atomo -> COND .)
+    IDENTIFICADOR   reduce using rule 20 (atomo -> COND .)
+    MAIS            reduce using rule 20 (atomo -> COND .)
+    MENOS           reduce using rule 20 (atomo -> COND .)
+    MULTIPLICACAO   reduce using rule 20 (atomo -> COND .)
+    DIVISAO         reduce using rule 20 (atomo -> COND .)
+    DIVISAOINT      reduce using rule 20 (atomo -> COND .)
+    RESTO           reduce using rule 20 (atomo -> COND .)
+    MAIOR           reduce using rule 20 (atomo -> COND .)
+    MENOR           reduce using rule 20 (atomo -> COND .)
+    MAIORIGUAL      reduce using rule 20 (atomo -> COND .)
+    MENORIGUAL      reduce using rule 20 (atomo -> COND .)
+    IGUAL           reduce using rule 20 (atomo -> COND .)
+    DIFERENTE       reduce using rule 20 (atomo -> COND .)
+    COND            reduce using rule 20 (atomo -> COND .)
+    AND             reduce using rule 20 (atomo -> COND .)
+    OR              reduce using rule 20 (atomo -> COND .)
+    NOT             reduce using rule 20 (atomo -> COND .)
+    NIL             reduce using rule 20 (atomo -> COND .)
+    CAR             reduce using rule 20 (atomo -> COND .)
+    CDR             reduce using rule 20 (atomo -> COND .)
+    CONS            reduce using rule 20 (atomo -> COND .)
+    PARENTESE_ESQ   reduce using rule 20 (atomo -> COND .)
+    PARENTESE_DIR   reduce using rule 20 (atomo -> COND .)
+
+
+state 22
+
+    (21) atomo -> AND .
+
+    $end            reduce using rule 21 (atomo -> AND .)
+    NUMERO          reduce using rule 21 (atomo -> AND .)
+    IDENTIFICADOR   reduce using rule 21 (atomo -> AND .)
+    MAIS            reduce using rule 21 (atomo -> AND .)
+    MENOS           reduce using rule 21 (atomo -> AND .)
+    MULTIPLICACAO   reduce using rule 21 (atomo -> AND .)
+    DIVISAO         reduce using rule 21 (atomo -> AND .)
+    DIVISAOINT      reduce using rule 21 (atomo -> AND .)
+    RESTO           reduce using rule 21 (atomo -> AND .)
+    MAIOR           reduce using rule 21 (atomo -> AND .)
+    MENOR           reduce using rule 21 (atomo -> AND .)
+    MAIORIGUAL      reduce using rule 21 (atomo -> AND .)
+    MENORIGUAL      reduce using rule 21 (atomo -> AND .)
+    IGUAL           reduce using rule 21 (atomo -> AND .)
+    DIFERENTE       reduce using rule 21 (atomo -> AND .)
+    COND            reduce using rule 21 (atomo -> AND .)
+    AND             reduce using rule 21 (atomo -> AND .)
+    OR              reduce using rule 21 (atomo -> AND .)
+    NOT             reduce using rule 21 (atomo -> AND .)
+    NIL             reduce using rule 21 (atomo -> AND .)
+    CAR             reduce using rule 21 (atomo -> AND .)
+    CDR             reduce using rule 21 (atomo -> AND .)
+    CONS            reduce using rule 21 (atomo -> AND .)
+    PARENTESE_ESQ   reduce using rule 21 (atomo -> AND .)
+    PARENTESE_DIR   reduce using rule 21 (atomo -> AND .)
+
+
+state 23
+
+    (22) atomo -> OR .
+
+    $end            reduce using rule 22 (atomo -> OR .)
+    NUMERO          reduce using rule 22 (atomo -> OR .)
+    IDENTIFICADOR   reduce using rule 22 (atomo -> OR .)
+    MAIS            reduce using rule 22 (atomo -> OR .)
+    MENOS           reduce using rule 22 (atomo -> OR .)
+    MULTIPLICACAO   reduce using rule 22 (atomo -> OR .)
+    DIVISAO         reduce using rule 22 (atomo -> OR .)
+    DIVISAOINT      reduce using rule 22 (atomo -> OR .)
+    RESTO           reduce using rule 22 (atomo -> OR .)
+    MAIOR           reduce using rule 22 (atomo -> OR .)
+    MENOR           reduce using rule 22 (atomo -> OR .)
+    MAIORIGUAL      reduce using rule 22 (atomo -> OR .)
+    MENORIGUAL      reduce using rule 22 (atomo -> OR .)
+    IGUAL           reduce using rule 22 (atomo -> OR .)
+    DIFERENTE       reduce using rule 22 (atomo -> OR .)
+    COND            reduce using rule 22 (atomo -> OR .)
+    AND             reduce using rule 22 (atomo -> OR .)
+    OR              reduce using rule 22 (atomo -> OR .)
+    NOT             reduce using rule 22 (atomo -> OR .)
+    NIL             reduce using rule 22 (atomo -> OR .)
+    CAR             reduce using rule 22 (atomo -> OR .)
+    CDR             reduce using rule 22 (atomo -> OR .)
+    CONS            reduce using rule 22 (atomo -> OR .)
+    PARENTESE_ESQ   reduce using rule 22 (atomo -> OR .)
+    PARENTESE_DIR   reduce using rule 22 (atomo -> OR .)
+
+
+state 24
+
+    (23) atomo -> NOT .
+
+    $end            reduce using rule 23 (atomo -> NOT .)
+    NUMERO          reduce using rule 23 (atomo -> NOT .)
+    IDENTIFICADOR   reduce using rule 23 (atomo -> NOT .)
+    MAIS            reduce using rule 23 (atomo -> NOT .)
+    MENOS           reduce using rule 23 (atomo -> NOT .)
+    MULTIPLICACAO   reduce using rule 23 (atomo -> NOT .)
+    DIVISAO         reduce using rule 23 (atomo -> NOT .)
+    DIVISAOINT      reduce using rule 23 (atomo -> NOT .)
+    RESTO           reduce using rule 23 (atomo -> NOT .)
+    MAIOR           reduce using rule 23 (atomo -> NOT .)
+    MENOR           reduce using rule 23 (atomo -> NOT .)
+    MAIORIGUAL      reduce using rule 23 (atomo -> NOT .)
+    MENORIGUAL      reduce using rule 23 (atomo -> NOT .)
+    IGUAL           reduce using rule 23 (atomo -> NOT .)
+    DIFERENTE       reduce using rule 23 (atomo -> NOT .)
+    COND            reduce using rule 23 (atomo -> NOT .)
+    AND             reduce using rule 23 (atomo -> NOT .)
+    OR              reduce using rule 23 (atomo -> NOT .)
+    NOT             reduce using rule 23 (atomo -> NOT .)
+    NIL             reduce using rule 23 (atomo -> NOT .)
+    CAR             reduce using rule 23 (atomo -> NOT .)
+    CDR             reduce using rule 23 (atomo -> NOT .)
+    CONS            reduce using rule 23 (atomo -> NOT .)
+    PARENTESE_ESQ   reduce using rule 23 (atomo -> NOT .)
+    PARENTESE_DIR   reduce using rule 23 (atomo -> NOT .)
+
+
+state 25
+
+    (24) atomo -> NIL .
+
+    $end            reduce using rule 24 (atomo -> NIL .)
+    NUMERO          reduce using rule 24 (atomo -> NIL .)
+    IDENTIFICADOR   reduce using rule 24 (atomo -> NIL .)
+    MAIS            reduce using rule 24 (atomo -> NIL .)
+    MENOS           reduce using rule 24 (atomo -> NIL .)
+    MULTIPLICACAO   reduce using rule 24 (atomo -> NIL .)
+    DIVISAO         reduce using rule 24 (atomo -> NIL .)
+    DIVISAOINT      reduce using rule 24 (atomo -> NIL .)
+    RESTO           reduce using rule 24 (atomo -> NIL .)
+    MAIOR           reduce using rule 24 (atomo -> NIL .)
+    MENOR           reduce using rule 24 (atomo -> NIL .)
+    MAIORIGUAL      reduce using rule 24 (atomo -> NIL .)
+    MENORIGUAL      reduce using rule 24 (atomo -> NIL .)
+    IGUAL           reduce using rule 24 (atomo -> NIL .)
+    DIFERENTE       reduce using rule 24 (atomo -> NIL .)
+    COND            reduce using rule 24 (atomo -> NIL .)
+    AND             reduce using rule 24 (atomo -> NIL .)
+    OR              reduce using rule 24 (atomo -> NIL .)
+    NOT             reduce using rule 24 (atomo -> NIL .)
+    NIL             reduce using rule 24 (atomo -> NIL .)
+    CAR             reduce using rule 24 (atomo -> NIL .)
+    CDR             reduce using rule 24 (atomo -> NIL .)
+    CONS            reduce using rule 24 (atomo -> NIL .)
+    PARENTESE_ESQ   reduce using rule 24 (atomo -> NIL .)
+    PARENTESE_DIR   reduce using rule 24 (atomo -> NIL .)
+
+
+state 26
+
+    (25) atomo -> CAR .
+
+    $end            reduce using rule 25 (atomo -> CAR .)
+    NUMERO          reduce using rule 25 (atomo -> CAR .)
+    IDENTIFICADOR   reduce using rule 25 (atomo -> CAR .)
+    MAIS            reduce using rule 25 (atomo -> CAR .)
+    MENOS           reduce using rule 25 (atomo -> CAR .)
+    MULTIPLICACAO   reduce using rule 25 (atomo -> CAR .)
+    DIVISAO         reduce using rule 25 (atomo -> CAR .)
+    DIVISAOINT      reduce using rule 25 (atomo -> CAR .)
+    RESTO           reduce using rule 25 (atomo -> CAR .)
+    MAIOR           reduce using rule 25 (atomo -> CAR .)
+    MENOR           reduce using rule 25 (atomo -> CAR .)
+    MAIORIGUAL      reduce using rule 25 (atomo -> CAR .)
+    MENORIGUAL      reduce using rule 25 (atomo -> CAR .)
+    IGUAL           reduce using rule 25 (atomo -> CAR .)
+    DIFERENTE       reduce using rule 25 (atomo -> CAR .)
+    COND            reduce using rule 25 (atomo -> CAR .)
+    AND             reduce using rule 25 (atomo -> CAR .)
+    OR              reduce using rule 25 (atomo -> CAR .)
+    NOT             reduce using rule 25 (atomo -> CAR .)
+    NIL             reduce using rule 25 (atomo -> CAR .)
+    CAR             reduce using rule 25 (atomo -> CAR .)
+    CDR             reduce using rule 25 (atomo -> CAR .)
+    CONS            reduce using rule 25 (atomo -> CAR .)
+    PARENTESE_ESQ   reduce using rule 25 (atomo -> CAR .)
+    PARENTESE_DIR   reduce using rule 25 (atomo -> CAR .)
+
+
+state 27
+
+    (26) atomo -> CDR .
+
+    $end            reduce using rule 26 (atomo -> CDR .)
+    NUMERO          reduce using rule 26 (atomo -> CDR .)
+    IDENTIFICADOR   reduce using rule 26 (atomo -> CDR .)
+    MAIS            reduce using rule 26 (atomo -> CDR .)
+    MENOS           reduce using rule 26 (atomo -> CDR .)
+    MULTIPLICACAO   reduce using rule 26 (atomo -> CDR .)
+    DIVISAO         reduce using rule 26 (atomo -> CDR .)
+    DIVISAOINT      reduce using rule 26 (atomo -> CDR .)
+    RESTO           reduce using rule 26 (atomo -> CDR .)
+    MAIOR           reduce using rule 26 (atomo -> CDR .)
+    MENOR           reduce using rule 26 (atomo -> CDR .)
+    MAIORIGUAL      reduce using rule 26 (atomo -> CDR .)
+    MENORIGUAL      reduce using rule 26 (atomo -> CDR .)
+    IGUAL           reduce using rule 26 (atomo -> CDR .)
+    DIFERENTE       reduce using rule 26 (atomo -> CDR .)
+    COND            reduce using rule 26 (atomo -> CDR .)
+    AND             reduce using rule 26 (atomo -> CDR .)
+    OR              reduce using rule 26 (atomo -> CDR .)
+    NOT             reduce using rule 26 (atomo -> CDR .)
+    NIL             reduce using rule 26 (atomo -> CDR .)
+    CAR             reduce using rule 26 (atomo -> CDR .)
+    CDR             reduce using rule 26 (atomo -> CDR .)
+    CONS            reduce using rule 26 (atomo -> CDR .)
+    PARENTESE_ESQ   reduce using rule 26 (atomo -> CDR .)
+    PARENTESE_DIR   reduce using rule 26 (atomo -> CDR .)
+
+
+state 28
+
+    (27) atomo -> CONS .
+
+    $end            reduce using rule 27 (atomo -> CONS .)
+    NUMERO          reduce using rule 27 (atomo -> CONS .)
+    IDENTIFICADOR   reduce using rule 27 (atomo -> CONS .)
+    MAIS            reduce using rule 27 (atomo -> CONS .)
+    MENOS           reduce using rule 27 (atomo -> CONS .)
+    MULTIPLICACAO   reduce using rule 27 (atomo -> CONS .)
+    DIVISAO         reduce using rule 27 (atomo -> CONS .)
+    DIVISAOINT      reduce using rule 27 (atomo -> CONS .)
+    RESTO           reduce using rule 27 (atomo -> CONS .)
+    MAIOR           reduce using rule 27 (atomo -> CONS .)
+    MENOR           reduce using rule 27 (atomo -> CONS .)
+    MAIORIGUAL      reduce using rule 27 (atomo -> CONS .)
+    MENORIGUAL      reduce using rule 27 (atomo -> CONS .)
+    IGUAL           reduce using rule 27 (atomo -> CONS .)
+    DIFERENTE       reduce using rule 27 (atomo -> CONS .)
+    COND            reduce using rule 27 (atomo -> CONS .)
+    AND             reduce using rule 27 (atomo -> CONS .)
+    OR              reduce using rule 27 (atomo -> CONS .)
+    NOT             reduce using rule 27 (atomo -> CONS .)
+    NIL             reduce using rule 27 (atomo -> CONS .)
+    CAR             reduce using rule 27 (atomo -> CONS .)
+    CDR             reduce using rule 27 (atomo -> CONS .)
+    CONS            reduce using rule 27 (atomo -> CONS .)
+    PARENTESE_ESQ   reduce using rule 27 (atomo -> CONS .)
+    PARENTESE_DIR   reduce using rule 27 (atomo -> CONS .)
+
+
+state 29
+
+    (28) definicao_funcao -> PARENTESE_ESQ . DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+    (30) expressao_if -> PARENTESE_ESQ . IF expressao expressao expressao PARENTESE_DIR
+    (31) lista_generica -> PARENTESE_ESQ . lista_de_expressoes PARENTESE_DIR
+    (32) lista_de_expressoes -> . expressao lista_de_expressoes
+    (33) lista_de_expressoes -> . expressao
+    (34) lista_de_expressoes -> .
+    (2) expressao -> . atomo
+    (3) expressao -> . definicao_funcao
+    (4) expressao -> . expressao_if
+    (5) expressao -> . lista_generica
+    (6) atomo -> . NUMERO
+    (7) atomo -> . IDENTIFICADOR
+    (8) atomo -> . MAIS
+    (9) atomo -> . MENOS
+    (10) atomo -> . MULTIPLICACAO
+    (11) atomo -> . DIVISAO
+    (12) atomo -> . DIVISAOINT
+    (13) atomo -> . RESTO
+    (14) atomo -> . MAIOR
+    (15) atomo -> . MENOR
+    (16) atomo -> . MAIORIGUAL
+    (17) atomo -> . MENORIGUAL
+    (18) atomo -> . IGUAL
+    (19) atomo -> . DIFERENTE
+    (20) atomo -> . COND
+    (21) atomo -> . AND
+    (22) atomo -> . OR
+    (23) atomo -> . NOT
+    (24) atomo -> . NIL
+    (25) atomo -> . CAR
+    (26) atomo -> . CDR
+    (27) atomo -> . CONS
+    (28) definicao_funcao -> . PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+    (30) expressao_if -> . PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR
+    (31) lista_generica -> . PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+
+    DEFUN           shift and go to state 30
+    IF              shift and go to state 32
+    PARENTESE_DIR   reduce using rule 34 (lista_de_expressoes -> .)
+    NUMERO          shift and go to state 7
+    IDENTIFICADOR   shift and go to state 8
+    MAIS            shift and go to state 9
+    MENOS           shift and go to state 10
+    MULTIPLICACAO   shift and go to state 11
+    DIVISAO         shift and go to state 12
+    DIVISAOINT      shift and go to state 13
+    RESTO           shift and go to state 14
+    MAIOR           shift and go to state 15
+    MENOR           shift and go to state 16
+    MAIORIGUAL      shift and go to state 17
+    MENORIGUAL      shift and go to state 18
+    IGUAL           shift and go to state 19
+    DIFERENTE       shift and go to state 20
+    COND            shift and go to state 21
+    AND             shift and go to state 22
+    OR              shift and go to state 23
+    NOT             shift and go to state 24
+    NIL             shift and go to state 25
+    CAR             shift and go to state 26
+    CDR             shift and go to state 27
+    CONS            shift and go to state 28
+    PARENTESE_ESQ   shift and go to state 29
+
+    expressao                      shift and go to state 31
+    lista_de_expressoes            shift and go to state 33
+    atomo                          shift and go to state 3
+    definicao_funcao               shift and go to state 4
+    expressao_if                   shift and go to state 5
+    lista_generica                 shift and go to state 6
+
+state 30
+
+    (28) definicao_funcao -> PARENTESE_ESQ DEFUN . IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+
+    IDENTIFICADOR   shift and go to state 34
+
+
+state 31
+
+    (32) lista_de_expressoes -> expressao . lista_de_expressoes
+    (33) lista_de_expressoes -> expressao .
+    (32) lista_de_expressoes -> . expressao lista_de_expressoes
+    (33) lista_de_expressoes -> . expressao
+    (34) lista_de_expressoes -> .
+    (2) expressao -> . atomo
+    (3) expressao -> . definicao_funcao
+    (4) expressao -> . expressao_if
+    (5) expressao -> . lista_generica
+    (6) atomo -> . NUMERO
+    (7) atomo -> . IDENTIFICADOR
+    (8) atomo -> . MAIS
+    (9) atomo -> . MENOS
+    (10) atomo -> . MULTIPLICACAO
+    (11) atomo -> . DIVISAO
+    (12) atomo -> . DIVISAOINT
+    (13) atomo -> . RESTO
+    (14) atomo -> . MAIOR
+    (15) atomo -> . MENOR
+    (16) atomo -> . MAIORIGUAL
+    (17) atomo -> . MENORIGUAL
+    (18) atomo -> . IGUAL
+    (19) atomo -> . DIFERENTE
+    (20) atomo -> . COND
+    (21) atomo -> . AND
+    (22) atomo -> . OR
+    (23) atomo -> . NOT
+    (24) atomo -> . NIL
+    (25) atomo -> . CAR
+    (26) atomo -> . CDR
+    (27) atomo -> . CONS
+    (28) definicao_funcao -> . PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+    (30) expressao_if -> . PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR
+    (31) lista_generica -> . PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+
+  ! reduce/reduce conflict for PARENTESE_DIR resolved using rule 33 (lista_de_expressoes -> expressao .)
+    PARENTESE_DIR   reduce using rule 33 (lista_de_expressoes -> expressao .)
+    NUMERO          shift and go to state 7
+    IDENTIFICADOR   shift and go to state 8
+    MAIS            shift and go to state 9
+    MENOS           shift and go to state 10
+    MULTIPLICACAO   shift and go to state 11
+    DIVISAO         shift and go to state 12
+    DIVISAOINT      shift and go to state 13
+    RESTO           shift and go to state 14
+    MAIOR           shift and go to state 15
+    MENOR           shift and go to state 16
+    MAIORIGUAL      shift and go to state 17
+    MENORIGUAL      shift and go to state 18
+    IGUAL           shift and go to state 19
+    DIFERENTE       shift and go to state 20
+    COND            shift and go to state 21
+    AND             shift and go to state 22
+    OR              shift and go to state 23
+    NOT             shift and go to state 24
+    NIL             shift and go to state 25
+    CAR             shift and go to state 26
+    CDR             shift and go to state 27
+    CONS            shift and go to state 28
+    PARENTESE_ESQ   shift and go to state 29
+
+  ! PARENTESE_DIR   [ reduce using rule 34 (lista_de_expressoes -> .) ]
+
+    expressao                      shift and go to state 31
+    lista_de_expressoes            shift and go to state 35
+    atomo                          shift and go to state 3
+    definicao_funcao               shift and go to state 4
+    expressao_if                   shift and go to state 5
+    lista_generica                 shift and go to state 6
+
+state 32
+
+    (30) expressao_if -> PARENTESE_ESQ IF . expressao expressao expressao PARENTESE_DIR
+    (2) expressao -> . atomo
+    (3) expressao -> . definicao_funcao
+    (4) expressao -> . expressao_if
+    (5) expressao -> . lista_generica
+    (6) atomo -> . NUMERO
+    (7) atomo -> . IDENTIFICADOR
+    (8) atomo -> . MAIS
+    (9) atomo -> . MENOS
+    (10) atomo -> . MULTIPLICACAO
+    (11) atomo -> . DIVISAO
+    (12) atomo -> . DIVISAOINT
+    (13) atomo -> . RESTO
+    (14) atomo -> . MAIOR
+    (15) atomo -> . MENOR
+    (16) atomo -> . MAIORIGUAL
+    (17) atomo -> . MENORIGUAL
+    (18) atomo -> . IGUAL
+    (19) atomo -> . DIFERENTE
+    (20) atomo -> . COND
+    (21) atomo -> . AND
+    (22) atomo -> . OR
+    (23) atomo -> . NOT
+    (24) atomo -> . NIL
+    (25) atomo -> . CAR
+    (26) atomo -> . CDR
+    (27) atomo -> . CONS
+    (28) definicao_funcao -> . PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+    (30) expressao_if -> . PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR
+    (31) lista_generica -> . PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+
+    NUMERO          shift and go to state 7
+    IDENTIFICADOR   shift and go to state 8
+    MAIS            shift and go to state 9
+    MENOS           shift and go to state 10
+    MULTIPLICACAO   shift and go to state 11
+    DIVISAO         shift and go to state 12
+    DIVISAOINT      shift and go to state 13
+    RESTO           shift and go to state 14
+    MAIOR           shift and go to state 15
+    MENOR           shift and go to state 16
+    MAIORIGUAL      shift and go to state 17
+    MENORIGUAL      shift and go to state 18
+    IGUAL           shift and go to state 19
+    DIFERENTE       shift and go to state 20
+    COND            shift and go to state 21
+    AND             shift and go to state 22
+    OR              shift and go to state 23
+    NOT             shift and go to state 24
+    NIL             shift and go to state 25
+    CAR             shift and go to state 26
+    CDR             shift and go to state 27
+    CONS            shift and go to state 28
+    PARENTESE_ESQ   shift and go to state 29
+
+    expressao                      shift and go to state 36
+    atomo                          shift and go to state 3
+    definicao_funcao               shift and go to state 4
+    expressao_if                   shift and go to state 5
+    lista_generica                 shift and go to state 6
+
+state 33
+
+    (31) lista_generica -> PARENTESE_ESQ lista_de_expressoes . PARENTESE_DIR
+
+    PARENTESE_DIR   shift and go to state 37
+
+
+state 34
+
+    (28) definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR . lista_parametros expressao PARENTESE_DIR
+    (29) lista_parametros -> . PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+
+    PARENTESE_ESQ   shift and go to state 38
+
+    lista_parametros               shift and go to state 39
+
+state 35
+
+    (32) lista_de_expressoes -> expressao lista_de_expressoes .
+
+    PARENTESE_DIR   reduce using rule 32 (lista_de_expressoes -> expressao lista_de_expressoes .)
+
+
+state 36
+
+    (30) expressao_if -> PARENTESE_ESQ IF expressao . expressao expressao PARENTESE_DIR
+    (2) expressao -> . atomo
+    (3) expressao -> . definicao_funcao
+    (4) expressao -> . expressao_if
+    (5) expressao -> . lista_generica
+    (6) atomo -> . NUMERO
+    (7) atomo -> . IDENTIFICADOR
+    (8) atomo -> . MAIS
+    (9) atomo -> . MENOS
+    (10) atomo -> . MULTIPLICACAO
+    (11) atomo -> . DIVISAO
+    (12) atomo -> . DIVISAOINT
+    (13) atomo -> . RESTO
+    (14) atomo -> . MAIOR
+    (15) atomo -> . MENOR
+    (16) atomo -> . MAIORIGUAL
+    (17) atomo -> . MENORIGUAL
+    (18) atomo -> . IGUAL
+    (19) atomo -> . DIFERENTE
+    (20) atomo -> . COND
+    (21) atomo -> . AND
+    (22) atomo -> . OR
+    (23) atomo -> . NOT
+    (24) atomo -> . NIL
+    (25) atomo -> . CAR
+    (26) atomo -> . CDR
+    (27) atomo -> . CONS
+    (28) definicao_funcao -> . PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+    (30) expressao_if -> . PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR
+    (31) lista_generica -> . PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+
+    NUMERO          shift and go to state 7
+    IDENTIFICADOR   shift and go to state 8
+    MAIS            shift and go to state 9
+    MENOS           shift and go to state 10
+    MULTIPLICACAO   shift and go to state 11
+    DIVISAO         shift and go to state 12
+    DIVISAOINT      shift and go to state 13
+    RESTO           shift and go to state 14
+    MAIOR           shift and go to state 15
+    MENOR           shift and go to state 16
+    MAIORIGUAL      shift and go to state 17
+    MENORIGUAL      shift and go to state 18
+    IGUAL           shift and go to state 19
+    DIFERENTE       shift and go to state 20
+    COND            shift and go to state 21
+    AND             shift and go to state 22
+    OR              shift and go to state 23
+    NOT             shift and go to state 24
+    NIL             shift and go to state 25
+    CAR             shift and go to state 26
+    CDR             shift and go to state 27
+    CONS            shift and go to state 28
+    PARENTESE_ESQ   shift and go to state 29
+
+    expressao                      shift and go to state 40
+    atomo                          shift and go to state 3
+    definicao_funcao               shift and go to state 4
+    expressao_if                   shift and go to state 5
+    lista_generica                 shift and go to state 6
+
+state 37
+
+    (31) lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .
+
+    $end            reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    NUMERO          reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    IDENTIFICADOR   reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MAIS            reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MENOS           reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MULTIPLICACAO   reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    DIVISAO         reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    DIVISAOINT      reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    RESTO           reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MAIOR           reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MENOR           reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MAIORIGUAL      reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MENORIGUAL      reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    IGUAL           reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    DIFERENTE       reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    COND            reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    AND             reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    OR              reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    NOT             reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    NIL             reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    CAR             reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    CDR             reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    CONS            reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    PARENTESE_ESQ   reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    PARENTESE_DIR   reduce using rule 31 (lista_generica -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+
+
+state 38
+
+    (29) lista_parametros -> PARENTESE_ESQ . lista_de_expressoes PARENTESE_DIR
+    (32) lista_de_expressoes -> . expressao lista_de_expressoes
+    (33) lista_de_expressoes -> . expressao
+    (34) lista_de_expressoes -> .
+    (2) expressao -> . atomo
+    (3) expressao -> . definicao_funcao
+    (4) expressao -> . expressao_if
+    (5) expressao -> . lista_generica
+    (6) atomo -> . NUMERO
+    (7) atomo -> . IDENTIFICADOR
+    (8) atomo -> . MAIS
+    (9) atomo -> . MENOS
+    (10) atomo -> . MULTIPLICACAO
+    (11) atomo -> . DIVISAO
+    (12) atomo -> . DIVISAOINT
+    (13) atomo -> . RESTO
+    (14) atomo -> . MAIOR
+    (15) atomo -> . MENOR
+    (16) atomo -> . MAIORIGUAL
+    (17) atomo -> . MENORIGUAL
+    (18) atomo -> . IGUAL
+    (19) atomo -> . DIFERENTE
+    (20) atomo -> . COND
+    (21) atomo -> . AND
+    (22) atomo -> . OR
+    (23) atomo -> . NOT
+    (24) atomo -> . NIL
+    (25) atomo -> . CAR
+    (26) atomo -> . CDR
+    (27) atomo -> . CONS
+    (28) definicao_funcao -> . PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+    (30) expressao_if -> . PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR
+    (31) lista_generica -> . PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+
+    PARENTESE_DIR   reduce using rule 34 (lista_de_expressoes -> .)
+    NUMERO          shift and go to state 7
+    IDENTIFICADOR   shift and go to state 8
+    MAIS            shift and go to state 9
+    MENOS           shift and go to state 10
+    MULTIPLICACAO   shift and go to state 11
+    DIVISAO         shift and go to state 12
+    DIVISAOINT      shift and go to state 13
+    RESTO           shift and go to state 14
+    MAIOR           shift and go to state 15
+    MENOR           shift and go to state 16
+    MAIORIGUAL      shift and go to state 17
+    MENORIGUAL      shift and go to state 18
+    IGUAL           shift and go to state 19
+    DIFERENTE       shift and go to state 20
+    COND            shift and go to state 21
+    AND             shift and go to state 22
+    OR              shift and go to state 23
+    NOT             shift and go to state 24
+    NIL             shift and go to state 25
+    CAR             shift and go to state 26
+    CDR             shift and go to state 27
+    CONS            shift and go to state 28
+    PARENTESE_ESQ   shift and go to state 29
+
+    lista_de_expressoes            shift and go to state 41
+    expressao                      shift and go to state 31
+    atomo                          shift and go to state 3
+    definicao_funcao               shift and go to state 4
+    expressao_if                   shift and go to state 5
+    lista_generica                 shift and go to state 6
+
+state 39
+
+    (28) definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros . expressao PARENTESE_DIR
+    (2) expressao -> . atomo
+    (3) expressao -> . definicao_funcao
+    (4) expressao -> . expressao_if
+    (5) expressao -> . lista_generica
+    (6) atomo -> . NUMERO
+    (7) atomo -> . IDENTIFICADOR
+    (8) atomo -> . MAIS
+    (9) atomo -> . MENOS
+    (10) atomo -> . MULTIPLICACAO
+    (11) atomo -> . DIVISAO
+    (12) atomo -> . DIVISAOINT
+    (13) atomo -> . RESTO
+    (14) atomo -> . MAIOR
+    (15) atomo -> . MENOR
+    (16) atomo -> . MAIORIGUAL
+    (17) atomo -> . MENORIGUAL
+    (18) atomo -> . IGUAL
+    (19) atomo -> . DIFERENTE
+    (20) atomo -> . COND
+    (21) atomo -> . AND
+    (22) atomo -> . OR
+    (23) atomo -> . NOT
+    (24) atomo -> . NIL
+    (25) atomo -> . CAR
+    (26) atomo -> . CDR
+    (27) atomo -> . CONS
+    (28) definicao_funcao -> . PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+    (30) expressao_if -> . PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR
+    (31) lista_generica -> . PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+
+    NUMERO          shift and go to state 7
+    IDENTIFICADOR   shift and go to state 8
+    MAIS            shift and go to state 9
+    MENOS           shift and go to state 10
+    MULTIPLICACAO   shift and go to state 11
+    DIVISAO         shift and go to state 12
+    DIVISAOINT      shift and go to state 13
+    RESTO           shift and go to state 14
+    MAIOR           shift and go to state 15
+    MENOR           shift and go to state 16
+    MAIORIGUAL      shift and go to state 17
+    MENORIGUAL      shift and go to state 18
+    IGUAL           shift and go to state 19
+    DIFERENTE       shift and go to state 20
+    COND            shift and go to state 21
+    AND             shift and go to state 22
+    OR              shift and go to state 23
+    NOT             shift and go to state 24
+    NIL             shift and go to state 25
+    CAR             shift and go to state 26
+    CDR             shift and go to state 27
+    CONS            shift and go to state 28
+    PARENTESE_ESQ   shift and go to state 29
+
+    expressao                      shift and go to state 42
+    atomo                          shift and go to state 3
+    definicao_funcao               shift and go to state 4
+    expressao_if                   shift and go to state 5
+    lista_generica                 shift and go to state 6
+
+state 40
+
+    (30) expressao_if -> PARENTESE_ESQ IF expressao expressao . expressao PARENTESE_DIR
+    (2) expressao -> . atomo
+    (3) expressao -> . definicao_funcao
+    (4) expressao -> . expressao_if
+    (5) expressao -> . lista_generica
+    (6) atomo -> . NUMERO
+    (7) atomo -> . IDENTIFICADOR
+    (8) atomo -> . MAIS
+    (9) atomo -> . MENOS
+    (10) atomo -> . MULTIPLICACAO
+    (11) atomo -> . DIVISAO
+    (12) atomo -> . DIVISAOINT
+    (13) atomo -> . RESTO
+    (14) atomo -> . MAIOR
+    (15) atomo -> . MENOR
+    (16) atomo -> . MAIORIGUAL
+    (17) atomo -> . MENORIGUAL
+    (18) atomo -> . IGUAL
+    (19) atomo -> . DIFERENTE
+    (20) atomo -> . COND
+    (21) atomo -> . AND
+    (22) atomo -> . OR
+    (23) atomo -> . NOT
+    (24) atomo -> . NIL
+    (25) atomo -> . CAR
+    (26) atomo -> . CDR
+    (27) atomo -> . CONS
+    (28) definicao_funcao -> . PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR
+    (30) expressao_if -> . PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR
+    (31) lista_generica -> . PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR
+
+    NUMERO          shift and go to state 7
+    IDENTIFICADOR   shift and go to state 8
+    MAIS            shift and go to state 9
+    MENOS           shift and go to state 10
+    MULTIPLICACAO   shift and go to state 11
+    DIVISAO         shift and go to state 12
+    DIVISAOINT      shift and go to state 13
+    RESTO           shift and go to state 14
+    MAIOR           shift and go to state 15
+    MENOR           shift and go to state 16
+    MAIORIGUAL      shift and go to state 17
+    MENORIGUAL      shift and go to state 18
+    IGUAL           shift and go to state 19
+    DIFERENTE       shift and go to state 20
+    COND            shift and go to state 21
+    AND             shift and go to state 22
+    OR              shift and go to state 23
+    NOT             shift and go to state 24
+    NIL             shift and go to state 25
+    CAR             shift and go to state 26
+    CDR             shift and go to state 27
+    CONS            shift and go to state 28
+    PARENTESE_ESQ   shift and go to state 29
+
+    expressao                      shift and go to state 43
+    atomo                          shift and go to state 3
+    definicao_funcao               shift and go to state 4
+    expressao_if                   shift and go to state 5
+    lista_generica                 shift and go to state 6
+
+state 41
+
+    (29) lista_parametros -> PARENTESE_ESQ lista_de_expressoes . PARENTESE_DIR
+
+    PARENTESE_DIR   shift and go to state 44
+
+
+state 42
+
+    (28) definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao . PARENTESE_DIR
+
+    PARENTESE_DIR   shift and go to state 45
+
+
+state 43
+
+    (30) expressao_if -> PARENTESE_ESQ IF expressao expressao expressao . PARENTESE_DIR
+
+    PARENTESE_DIR   shift and go to state 46
+
+
+state 44
+
+    (29) lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .
+
+    NUMERO          reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    IDENTIFICADOR   reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MAIS            reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MENOS           reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MULTIPLICACAO   reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    DIVISAO         reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    DIVISAOINT      reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    RESTO           reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MAIOR           reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MENOR           reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MAIORIGUAL      reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    MENORIGUAL      reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    IGUAL           reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    DIFERENTE       reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    COND            reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    AND             reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    OR              reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    NOT             reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    NIL             reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    CAR             reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    CDR             reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    CONS            reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+    PARENTESE_ESQ   reduce using rule 29 (lista_parametros -> PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR .)
+
+
+state 45
+
+    (28) definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .
+
+    $end            reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    NUMERO          reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    IDENTIFICADOR   reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    MAIS            reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    MENOS           reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    MULTIPLICACAO   reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    DIVISAO         reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    DIVISAOINT      reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    RESTO           reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    MAIOR           reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    MENOR           reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    MAIORIGUAL      reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    MENORIGUAL      reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    IGUAL           reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    DIFERENTE       reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    COND            reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    AND             reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    OR              reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    NOT             reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    NIL             reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    CAR             reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    CDR             reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    CONS            reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    PARENTESE_ESQ   reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+    PARENTESE_DIR   reduce using rule 28 (definicao_funcao -> PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR .)
+
+
+state 46
+
+    (30) expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .
+
+    $end            reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    NUMERO          reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    IDENTIFICADOR   reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    MAIS            reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    MENOS           reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    MULTIPLICACAO   reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    DIVISAO         reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    DIVISAOINT      reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    RESTO           reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    MAIOR           reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    MENOR           reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    MAIORIGUAL      reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    MENORIGUAL      reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    IGUAL           reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    DIFERENTE       reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    COND            reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    AND             reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    OR              reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    NOT             reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    NIL             reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    CAR             reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    CDR             reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    CONS            reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    PARENTESE_ESQ   reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+    PARENTESE_DIR   reduce using rule 30 (expressao_if -> PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: reduce/reduce conflict in state 31 resolved using rule (lista_de_expressoes -> expressao)
+WARNING: rejected rule (lista_de_expressoes -> <empty>) in state 31
