@@ -2,6 +2,7 @@
 # ANALISADOR LÉXICO E SINTÁTICO PARA LINGUAGEM LISP
 # Projeto Integrador III - UNIPAMPA
 # Grupo 9 - Filipe Rosa e Lucas Moreira
+#link git -> https://github.com/FilipeTRosa/LISP_Compiler
 # =============================================================
 
 import ply.lex as lex
@@ -88,12 +89,10 @@ start = 'programa'
 def p_programa(p):
     'programa : expressao'
     p[0] = p[1]
-    # O print da AST foi movido para o bloco de teste principal
-    # para mantermos as regras da gramática limpas.
 
-# A regra 'expressao' agora é um grande distribuidor para todas as
-# estruturas sintáticas possíveis na nossa linguagem.
-# A ordem é importante: regras mais específicas primeiro.
+# A regra 'expressao' é um grande distribuidor para todas as
+# estruturas sintáticas possíveis na linguagem.
+# Regras mais específicas primeiro.
 def p_expressao(p):
     '''expressao : atomo
                  | definicao_funcao
@@ -122,7 +121,7 @@ def p_expressao_aritmetica(p):
     # AST: (operador, arg1, arg2)
     p[0] = (p[2], p[3], p[4])
 
-# [cite_start]2. Regras para Operadores de Comparação (com 2 argumentos) [cite: 86]
+#2. Regras para Operadores de Comparação (com 2 argumentos)
 def p_expressao_comparacao(p):
     '''expressao_comparacao : PARENTESE_ESQ IGUAL expressao expressao PARENTESE_DIR
                             | PARENTESE_ESQ MAIOR expressao expressao PARENTESE_DIR
@@ -238,9 +237,14 @@ if __name__ == "__main__":
     # O parser.parse(data) automaticamente reinicia o lexer
     resultado_ast = parser.parse(data)
     
+
+    
+    
     if resultado_ast:
         # Usa pprint para formatar a árvore de forma legível
         #pprint.pformat(resultado_ast, indent=2) #retorna a string formatada
+
+        #tentativa de imprimir a arvore no terminal.... ainda não funciona corretamente.
         saida_parser_string = pprint.pformat(resultado_ast, indent=2, width=120)
 
         # Imprime no terminal
