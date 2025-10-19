@@ -1,5 +1,5 @@
 # =============================================================
-# ANALISADOR LÉXICO E SINTÁTICO PARA LINGUAGEM LISP-LIKE
+# ANALISADOR LÉXICO E SINTÁTICO PARA LINGUAGEM LISP
 # Projeto Integrador III - UNIPAMPA
 # Grupo 9 - Filipe Rosa e Lucas Moreira
 # =============================================================
@@ -82,70 +82,81 @@ lexer = lex.lex()
 # 2. ANALISADOR SINTÁTICO (PARSER)
 # =============================================================
 
-# Regra inicial da gramática. O parser começa por aqui.
+# Regra inicial da gramática
 start = 'programa'
 
 def p_programa(p):
     'programa : expressao'
     p[0] = p[1]
-    print("--- ANÁLISE SINTÁTICA CONCLUÍDA ---")
-    print(p[0])
+    # O print da AST foi movido para o bloco de teste principal
+    # para mantermos as regras da gramática limpas.
 
-# expressão
+# A regra 'expressao' agora é um grande distribuidor para todas as
+# estruturas sintáticas possíveis na nossa linguagem.
+# A ordem é importante: regras mais específicas primeiro.
 def p_expressao(p):
     '''expressao : atomo
                  | definicao_funcao
                  | expressao_if
-                 | lista_generica'''
+                 | expressao_aritmetica
+                 | expressao_comparacao
+                 | expressao_lista
+                 | lista_generica''' # Fallback para outras listas
     p[0] = p[1]
 
-#REGRA PARA ÁTOMOS
+# REGRA PARA ÁTOMOS (unidades indivisíveis)
 def p_atomo(p):
     '''atomo : NUMERO
              | IDENTIFICADOR
-             | MAIS 
-             | MENOS 
-             | MULTIPLICACAO 
-             | DIVISAO
-             | DIVISAOINT 
-             | RESTO
-             | MAIOR 
-             | MENOR 
-             | MAIORIGUAL 
-             | MENORIGUAL
-             | IGUAL 
-             | DIFERENTE
-             | COND 
-             | AND 
-             | OR 
-             | NOT
-             | NIL 
-             | CAR 
-             | CDR 
-             | CONS'''
+             | NIL'''
     p[0] = p[1]
 
-# REGRA ESPECÍFICA para (defun ...)
+# --- REGRAS ESPECÍFICAS PARA OPERAÇÕES ---
+
+# 1. Regras para Operadores Aritméticos (com 2 argumentos)
+def p_expressao_aritmetica(p):
+    '''expressao_aritmetica : PARENTESE_ESQ MAIS expressao expressao PARENTESE_DIR
+                            | PARENTESE_ESQ MENOS expressao expressao PARENTESE_DIR
+                            | PARENTESE_ESQ MULTIPLICACAO expressao expressao PARENTESE_DIR
+                            | PARENTESE_ESQ DIVISAOINT expressao expressao PARENTESE_DIR'''
+    # AST: (operador, arg1, arg2)
+    p[0] = (p[2], p[3], p[4])
+
+# [cite_start]2. Regras para Operadores de Comparação (com 2 argumentos) [cite: 86]
+def p_expressao_comparacao(p):
+    '''expressao_comparacao : PARENTESE_ESQ IGUAL expressao expressao PARENTESE_DIR
+                            | PARENTESE_ESQ MAIOR expressao expressao PARENTESE_DIR
+                            | PARENTESE_ESQ MENOR expressao expressao PARENTESE_DIR'''
+    # AST: (operador, arg1, arg2)
+    p[0] = (p[2], p[3], p[4])
+
+# 3. Regras para Operadores de Lista (com 1 argumento)
+def p_expressao_lista(p):
+    '''expressao_lista : PARENTESE_ESQ CAR expressao PARENTESE_DIR
+                       | PARENTESE_ESQ CDR expressao PARENTESE_DIR'''
+    # AST: (operador, arg)
+    p[0] = (p[2], p[3])
+
+# --- REGRAS ESPECÍFICAS PARA ESTRUTURAS DA LINGUAGEM ---
+
 def p_definicao_funcao(p):
     'definicao_funcao : PARENTESE_ESQ DEFUN IDENTIFICADOR lista_parametros expressao PARENTESE_DIR'
-    p[0] = ('defun', p[3], p[4], p[5]) # (defun, nome, (params), corpo)
+    p[0] = ('defun', p[3], p[4], p[5])
 
 def p_lista_parametros(p):
     'lista_parametros : PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR'
     p[0] = p[2]
 
-# REGRA ESPECÍFICA para (if ...) 
 def p_expressao_if(p):
     'expressao_if : PARENTESE_ESQ IF expressao expressao expressao PARENTESE_DIR'
-    p[0] = ('if', p[3], p[4], p[5]) # (if, condição, bloco_then, bloco_else)
+    p[0] = ('if', p[3], p[4], p[5])
 
-# REGRA GENÉRICA para qualquer outra lista
+# REGRA GENÉRICA para qualquer outra lista que não se encaixe nas regras específicas
 def p_lista_generica(p):
     'lista_generica : PARENTESE_ESQ lista_de_expressoes PARENTESE_DIR'
-    # O valor é a própria lista de itens
     p[0] = p[2]
 
-# --- Regras para construir a lista de itens dentro dos parênteses ---
+# --- REGRAS AUXILIARES PARA CONSTRUIR LISTAS DE ITENS ---
 
 def p_lista_de_expressoes_multipla(p):
     'lista_de_expressoes : expressao lista_de_expressoes'
@@ -159,7 +170,7 @@ def p_lista_de_expressoes_vazia(p):
     'lista_de_expressoes : '
     p[0] = []
 
-# --- Tratamento de Erro Sintático ---
+# --- TRATAMENTO DE ERRO SINTÁTICO ---
 def p_error(p):
     if p:
         print(f"Erro de sintaxe no token '{p.value}', tipo '{p.type}', na linha {p.lineno}")
@@ -168,6 +179,7 @@ def p_error(p):
 
 # --- CONSTRUÇÃO DO PARSER ---
 parser = yacc.yacc()
+
 
 #Funcao para imprimir a arvore
 def desenhar_arvore(node, level=0):
