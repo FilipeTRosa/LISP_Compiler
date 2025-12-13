@@ -1,1 +1,15 @@
-('defun', 'soma', ['lista'], ('if', ('eq', 'lista', 'nil'), 0, ('+', ('car', 'lista'), ['soma', ('cdr', 'lista')])))
+=== Árvore de Sintaxe Abstrata (AST) ===
+[('defun', 'somar', ['a', 'b'], ('+', ['a', 'b'])), ('print', ['somar', 5, 3])]
+
+=== Visualização Gráfica ===
++ ['defun']
+  '-' 'somar'
+  + ['a']
+    '-' 'b'
+  + ['+']
+    + ['a']
+      '-' 'b'
++ ['print']
+  + ['somar']
+    '-' 5
+    '-' 3
